@@ -63,7 +63,7 @@ export default function Hero() {
               </a>
               <div className="flex items-center gap-2 ml-auto sm:ml-0">
                 <a
-                  href="https://github.com/shannjongaya" // Placeholder
+                  href="https://github.com/shann03"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-slate-800/50 hover:bg-slate-700 border border-slate-700 rounded-lg transition-colors text-slate-300 hover:text-cyan-400"

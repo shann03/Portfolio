@@ -1,8 +1,9 @@
 "use client";
 
-import { motion } from "motion/react";
-import { BadgeCheck, ShieldCheck, CloudLightning, CircleCheckBig, Clock } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import { BadgeCheck, ShieldCheck, CloudLightning, CircleCheckBig, Clock, X, ZoomIn } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 
 const certifications = [
   {
@@ -23,7 +24,15 @@ const certifications = [
   },
   {
     title: "AWS Academy Graduate",
-    issuer: "Cloud Foundations",
+    issuer: "Cloud Foundations Certificate",
+    status: "Completed",
+    icon: CloudLightning,
+    image: "/AWSCert.jpg",
+    color: "text-orange-400"
+  },
+  {
+    title: "AWS Academy Badge",
+    issuer: "Cloud Foundations Badge",
     status: "Completed",
     icon: CloudLightning,
     image: "/aws.jpg",
@@ -56,6 +65,8 @@ const certifications = [
 ];
 
 export default function Certifications() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
     <section id="certifications" className="py-24 relative border-t border-slate-800/50 bg-slate-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -86,10 +97,18 @@ export default function Certifications() {
               className="relative group h-full"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/10 to-blue-500/10 rounded-3xl transform group-hover:-translate-y-2 group-hover:translate-x-2 transition-transform duration-300" />
-              <div className="relative h-full p-6 rounded-3xl glass border border-slate-800 flex flex-col bg-slate-900 w-full transform group-hover:-translate-y-2 group-hover:-translate-x-2 transition-transform duration-300 group-hover:border-cyan-500/30">
-                <div className={`w-full h-32 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center shrink-0 mb-6 relative overflow-hidden ${cert.color}`}>
+              <div 
+                className="relative h-full p-6 rounded-3xl glass border border-slate-800 flex flex-col bg-slate-900 w-full transform group-hover:-translate-y-2 group-hover:-translate-x-2 transition-transform duration-300 group-hover:border-cyan-500/30 cursor-pointer"
+                onClick={() => setSelectedImage(cert.image || null)}
+              >
+                <div className={`w-full h-32 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center shrink-0 mb-6 relative overflow-hidden group/image ${cert.color}`}>
                   {cert.image ? (
-                    <Image src={cert.image} alt={cert.title} fill className="object-contain p-2" />
+                    <>
+                      <Image src={cert.image} alt={cert.title} fill className="object-contain p-2" />
+                      <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover/image:opacity-100 transition-opacity flex items-center justify-center">
+                        <ZoomIn className="w-6 h-6 text-white" />
+                      </div>
+                    </>
                   ) : (
                     <cert.icon className="w-8 h-8 opacity-50" />
                   )}
@@ -119,6 +138,39 @@ export default function Certifications() {
           ))}
         </div>
       </div>
+
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8 bg-slate-950/80 backdrop-blur-md cursor-zoom-out"
+            onClick={() => setSelectedImage(null)}
+          >
+            <motion.div 
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="relative w-full max-w-5xl aspect-[4/3] sm:aspect-video rounded-2xl overflow-hidden glass border border-slate-700 bg-slate-950/90 shadow-2xl cursor-default"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-4 right-4 z-10 p-2 rounded-full bg-slate-900/80 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-700 transition"
+              >
+                <X className="w-5 h-5" />
+              </button>
+              <Image 
+                src={selectedImage} 
+                alt="Certificate View" 
+                fill 
+                className="object-contain p-4 sm:p-8" 
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

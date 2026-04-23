@@ -190,7 +190,7 @@ export default function Contact() {
       {/* Footer */}
       <footer className="mt-24 py-8 border-t border-slate-800/50 text-center relative z-10">
         <p className="font-mono text-xs text-slate-500">
-          &copy; {new Date().getFullYear()} SHANN ERROL J. JONGAYA | Cybersecurity Portfolio
+          &copy; {new Date().getFullYear()} SHANN ERROL J. JONGAYA | Portfolio
         </p>
       </footer>
     </section>

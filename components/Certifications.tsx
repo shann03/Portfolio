@@ -104,7 +104,7 @@ export default function Certifications() {
                 <div className={`w-full h-32 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center shrink-0 mb-6 relative overflow-hidden group/image ${cert.color}`}>
                   {cert.image ? (
                     <>
-                      <Image src={cert.image} alt={cert.title} fill className="object-contain p-2" />
+                      <Image src={cert.image} alt={cert.title} fill className="object-contain p-2" unoptimized={true} />
                       <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover/image:opacity-100 transition-opacity flex items-center justify-center">
                         <ZoomIn className="w-6 h-6 text-white" />
                       </div>
@@ -166,6 +166,7 @@ export default function Certifications() {
                 alt="Certificate View" 
                 fill 
                 className="object-contain p-4 sm:p-8" 
+                unoptimized={true}
               />
             </motion.div>
           </motion.div>

@@ -95,6 +95,7 @@ export default function Projects() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
+                  unoptimized={true}
                 />
                 <div className="absolute inset-0 border border-inset border-white/10 rounded-2xl z-20 pointer-events-none" />
               </div>

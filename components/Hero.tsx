@@ -122,6 +122,7 @@ export default function Hero() {
                    fill
                    className="object-cover"
                    referrerPolicy="no-referrer"
+                   unoptimized={true}
                  />
                  <div className="absolute inset-0 border border-inset border-slate-800/50 rounded-b-xl pointer-events-none" />
               </div>

@@ -6,6 +6,35 @@ import Image from "next/image";
 
 const projects = [
   {
+    title: "Student Welfare and Digital Safety Management System",
+    description: "A web-based application to manage and monitor student-related incidents, bullying reports, counseling records, and disciplinary actions centrally. Features role-based access for administrators, teachers, and counselors. Demo accounts available: admin/teacher/counselor@gmail.com with password '12345678'.",
+    technologies: ["Web Development", "Role-Based Access", "Data Privacy"],
+    icon: ShieldCheck,
+    image: "/SWDSMS.jpg",
+    color: "from-teal-900/40 to-slate-900/40",
+    border: "group-hover:border-teal-500/50",
+    liveUrl: "https://agent-6992f831417610303df2ba2b--web-safeeduu.netlify.app/",
+  },
+  {
+    title: "CampusSHARE (Uniborrow)",
+    description: "A peer-to-peer campus rental platform for students to borrow, lend, and securely exchange items. It integrates interactive campus safe-zone selection, real-time messaging, secure meetup scheduling, and a planned freemium model with PayMongo.",
+    technologies: ["Next.js", "Supabase", "Google Maps API", "PayMongo"],
+    icon: Activity,
+    image: "https://picsum.photos/seed/uniborrow/800/500",
+    color: "from-blue-900/40 to-slate-900/40",
+    border: "group-hover:border-blue-500/50",
+    liveUrl: "https://uniborrowv2.netlify.app/",
+  },
+  {
+    title: "Aegis Sentinel",
+    description: "An ongoing cybersecurity-focused web application designed to strengthen security monitoring and user access management. It integrates secure authentication, RBAC, and centralized activity monitoring to improve the visibility of potential security events.",
+    technologies: ["Full-Stack", "Cybersecurity", "Access Control"],
+    icon: Server,
+    image: "https://picsum.photos/seed/aegis/800/500",
+    color: "from-purple-900/40 to-slate-900/40",
+    border: "group-hover:border-purple-500/50",
+  },
+  {
     title: "Automated Network Log Analysis System",
     description: "An academic project focusing on automating log analysis to detect suspicious activities and understand early cyber-attack detection concepts in a campus network environment.",
     technologies: ["Python", "Network Monitoring", "Log Analysis", "Security Analytics"],
@@ -106,12 +135,16 @@ export default function Projects() {
                 </ul>
 
                 <div className="flex items-center gap-4 pt-4">
-                  <a href="#" className="p-2 text-slate-400 hover:text-cyan-400 transition-colors" aria-label="GitHub Repository">
-                    <Github className="w-6 h-6" />
-                  </a>
-                  <a href="#" className="p-2 text-slate-400 hover:text-cyan-400 transition-colors" aria-label="Live Demo">
-                    <ExternalLink className="w-6 h-6" />
-                  </a>
+                  {(project as any).githubUrl && (
+                    <a href={(project as any).githubUrl} target="_blank" rel="noopener noreferrer" className="p-2 text-slate-400 hover:text-cyan-400 transition-colors" aria-label="GitHub Repository">
+                      <Github className="w-6 h-6" />
+                    </a>
+                  )}
+                  {((project as any).liveUrl || !(project as any).githubUrl) && (
+                    <a href={(project as any).liveUrl || "#"} target={(project as any).liveUrl ? "_blank" : "_self"} rel="noopener noreferrer" className="p-2 text-slate-400 hover:text-cyan-400 transition-colors" aria-label="Live Demo">
+                      <ExternalLink className="w-6 h-6" />
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>

@@ -6,6 +6,7 @@ import TechnicalPortfolio from "@/components/TechnicalPortfolio";
 import Skills from "@/components/Skills";
 import Certifications from "@/components/Certifications";
 import Contact from "@/components/Contact";
+import LearningJourney from "@/components/LearningJourney";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <About />
       <Projects />
       <TechnicalPortfolio />
+      <LearningJourney />
       <Skills />
       <Certifications />
       <Contact />

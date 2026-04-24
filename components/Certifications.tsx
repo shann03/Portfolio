@@ -2,7 +2,6 @@
 
 import { motion, AnimatePresence } from "motion/react";
 import { BadgeCheck, ShieldCheck, CloudLightning, CircleCheckBig, Clock, X, ZoomIn } from "lucide-react";
-import Image from "next/image";
 import { useState } from "react";
 
 const certifications = [
@@ -104,7 +103,7 @@ export default function Certifications() {
                 <div className={`w-full h-32 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center shrink-0 mb-6 relative overflow-hidden group/image ${cert.color}`}>
                   {cert.image ? (
                     <>
-                      <Image src={cert.image} alt={cert.title} fill className="object-contain p-2" unoptimized={true} />
+                      <img src={cert.image} alt={cert.title} className="absolute inset-0 w-full h-full object-contain p-2" />
                       <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover/image:opacity-100 transition-opacity flex items-center justify-center">
                         <ZoomIn className="w-6 h-6 text-white" />
                       </div>
@@ -161,12 +160,10 @@ export default function Certifications() {
               >
                 <X className="w-5 h-5" />
               </button>
-              <Image 
+              <img 
                 src={selectedImage} 
                 alt="Certificate View" 
-                fill 
-                className="object-contain p-4 sm:p-8" 
-                unoptimized={true}
+                className="absolute inset-0 w-full h-full object-contain p-4 sm:p-8" 
               />
             </motion.div>
           </motion.div>

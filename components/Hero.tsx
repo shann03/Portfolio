@@ -3,7 +3,6 @@
 import { motion } from "motion/react";
 import { Terminal, Download, Github, Mail, ChevronDown } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -116,13 +115,11 @@ export default function Hero() {
               </div>
               <div className="flex-1 relative bg-slate-950 rounded-b-xl overflow-hidden flex items-center justify-center group">
                  {/* Image Placeholder */}
-                 <Image
+                 <img
                    src="/profile.jpg"
                    alt="Shann Errol J. Jongaya"
-                   fill
-                   className="object-cover"
+                   className="absolute inset-0 w-full h-full object-cover"
                    referrerPolicy="no-referrer"
-                   unoptimized={true}
                  />
                  <div className="absolute inset-0 border border-inset border-slate-800/50 rounded-b-xl pointer-events-none" />
               </div>

@@ -2,7 +2,6 @@
 
 import { motion } from "motion/react";
 import { Github, ExternalLink, Activity, Server, ShieldCheck } from "lucide-react";
-import Image from "next/image";
 
 const projects = [
   {
@@ -89,13 +88,11 @@ export default function Projects() {
               {/* Image Pane */}
               <div className="w-full lg:w-1/2 relative lg:h-[400px] h-[300px] rounded-2xl overflow-hidden glass border border-slate-800 transition-colors duration-500">
                 <div className={`absolute inset-0 bg-gradient-to-tr ${project.color} mix-blend-overlay z-10 opacity-60 group-hover:opacity-0 transition-opacity duration-500`} />
-                <Image
+                <img
                   src={project.image}
                   alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
-                  unoptimized={true}
                 />
                 <div className="absolute inset-0 border border-inset border-white/10 rounded-2xl z-20 pointer-events-none" />
               </div>

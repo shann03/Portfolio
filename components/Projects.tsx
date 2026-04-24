@@ -20,7 +20,7 @@ const projects = [
     description: "A peer-to-peer campus rental platform for students to borrow, lend, and securely exchange items. It integrates interactive campus safe-zone selection, real-time messaging, secure meetup scheduling, and a planned freemium model with PayMongo.",
     technologies: ["Next.js", "Supabase", "Google Maps API", "PayMongo"],
     icon: Activity,
-    image: "https://picsum.photos/seed/uniborrow/800/500",
+    image: "/uniborrow.jpg",
     color: "from-blue-900/40 to-slate-900/40",
     border: "group-hover:border-blue-500/50",
     liveUrl: "https://uniborrowv2.netlify.app/",
@@ -33,15 +33,6 @@ const projects = [
     image: "https://picsum.photos/seed/aegis/800/500",
     color: "from-purple-900/40 to-slate-900/40",
     border: "group-hover:border-purple-500/50",
-  },
-  {
-    title: "Automated Network Log Analysis System",
-    description: "An academic project focusing on automating log analysis to detect suspicious activities and understand early cyber-attack detection concepts in a campus network environment.",
-    technologies: ["Python", "Network Monitoring", "Log Analysis", "Security Analytics"],
-    icon: Activity,
-    image: "https://picsum.photos/seed/netlog/800/500",
-    color: "from-emerald-900/40 to-slate-900/40",
-    border: "group-hover:border-emerald-500/50"
   },
   {
     title: "AWS Production Infrastructure",
@@ -136,13 +127,17 @@ export default function Projects() {
 
                 <div className="flex items-center gap-4 pt-4">
                   {(project as any).githubUrl && (
-                    <a href={(project as any).githubUrl} target="_blank" rel="noopener noreferrer" className="p-2 text-slate-400 hover:text-cyan-400 transition-colors" aria-label="GitHub Repository">
-                      <Github className="w-6 h-6" />
+                    <a href={(project as any).githubUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-2 flex items-center gap-2 bg-slate-900 border border-slate-700 hover:border-cyan-500 rounded-lg text-slate-300 hover:text-cyan-400 transition-all shadow-sm" aria-label="GitHub Repository">
+                      <Github className="w-5 h-5" />
+                      <span className="font-mono text-sm">Repository</span>
                     </a>
                   )}
                   {((project as any).liveUrl || !(project as any).githubUrl) && (
-                    <a href={(project as any).liveUrl || "#"} target={(project as any).liveUrl ? "_blank" : "_self"} rel="noopener noreferrer" className="p-2 text-slate-400 hover:text-cyan-400 transition-colors" aria-label="Live Demo">
-                      <ExternalLink className="w-6 h-6" />
+                    <a href={(project as any).liveUrl || "#"} target={(project as any).liveUrl ? "_blank" : "_self"} rel="noopener noreferrer" className="px-4 py-2 flex items-center gap-2 bg-cyan-950/30 border border-cyan-800/50 hover:bg-cyan-900/50 hover:border-cyan-500 rounded-lg text-cyan-400 transition-all shadow-sm" aria-label="Live Demo">
+                      <ExternalLink className="w-5 h-5" />
+                      <span className="font-mono text-sm max-w-[150px] sm:max-w-xs truncate">
+                        {((project as any).liveUrl && (project as any).liveUrl.replace(/^https?:\/\//, '')) || "Live Demo"}
+                      </span>
                     </a>
                   )}
                 </div>

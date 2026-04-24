@@ -91,7 +91,7 @@ export default function LearningJourney() {
                    </div>
                    <h4 className="text-2xl font-bold text-white mb-4">Educational Intent</h4>
                    <p className="text-slate-400 leading-relaxed">
-                     <strong className="text-emerald-400 font-medium">My focus is on understanding these techniques for educational and defensive purposes only.</strong> The goal is to comprehend the adversary's mindset to better implement robust security architectures and mitigate modern vulnerabilities.
+                     <strong className="text-emerald-400 font-medium">My focus is on understanding these techniques for educational and defensive purposes only.</strong> The goal is to comprehend the adversary&apos;s mindset to better implement robust security architectures and mitigate modern vulnerabilities.
                    </p>
                 </div>
               </div>
